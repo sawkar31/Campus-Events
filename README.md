@@ -1,3 +1,6 @@
+Got it 👍 — here’s the clean **README.md code** without any emojis/icons, ready to use in your project:
+
+````markdown
 # Campus Event Management System
 
 A complete event management platform designed specifically for colleges.  
@@ -40,14 +43,19 @@ Built with **Express.js, SQLite, and vanilla HTML/CSS/JavaScript**, it’s light
 ```bash
 git clone <repository-url>
 cd campus-event-management
-```
-Install Dependencies
+````
+
+### 2. Install Dependencies
+
+```bash
 npm install
+```
 
-##3. Configure Environment
+### 3. Configure Environment
 
-Create a .env file in the root folder:
+Create a `.env` file in the root folder:
 
+```env
 # JWT Settings
 JWT_SECRET=your_secret_key
 JWT_EXPIRES_IN=7d
@@ -55,134 +63,123 @@ JWT_EXPIRES_IN=7d
 # Server Settings
 PORT=5000
 NODE_ENV=development
-
+```
 
 Note: The system auto-creates the database on first run.
 A default admin account is also set up:
 
-Email: admin@college.edu
+* Email: `admin@college.edu`
+* Password: `admin123`
 
-Password: admin123
+### 4. Run the App
 
-4. Run the App
+**Start Backend**
 
-Start Backend
-
+```bash
 npm start
 # or use for development
 npm run dev
+```
 
+**Launch Admin Portal**
 
-Launch Admin Portal
-
+```bash
 npm run admin
 # Opens at http://localhost:3000
+```
 
+**Launch Student App**
 
-Launch Student App
-
+```bash
 npm run student
 # Opens at http://localhost:3001
+```
 
-How to Use
-Admin Portal → http://localhost:3000
+---
 
-Login with default or new admin account
+## How to Use
 
-Create events with details like time, venue, and type
+### Admin Portal → [http://localhost:3000](http://localhost:3000)
 
-Track registrations and attendance
+1. Login with default or new admin account
+2. Create events with details like time, venue, and type
+3. Track registrations and attendance
+4. Monitor analytics
 
-Monitor analytics
+### Student App → [http://localhost:3001](http://localhost:3001)
 
-Student App → http://localhost:3001
+1. Sign up as a student
+2. Browse events and register
+3. Check in on event day
+4. View registered events anytime
 
-Sign up as a student
+---
 
-Browse events and register
+## API Endpoints
 
-Check in on event day
+### Authentication
 
-View registered events anytime
+* `POST /api/auth/register-admin` → New admin registration
+* `POST /api/auth/login-admin` → Admin login
+* `POST /api/auth/register-student` → Student registration
+* `POST /api/auth/login-student` → Student login
 
-API Endpoints
-Authentication
+### Events
 
-POST /api/auth/register-admin → New admin registration
+* `GET /api/events` → List all events
+* `GET /api/events/:id` → Get details of one event
+* `POST /api/events` → Add event (Admin only)
+* `PUT /api/events/:id` → Update event (Admin only)
+* `DELETE /api/events/:id` → Remove event (Admin only)
 
-POST /api/auth/login-admin → Admin login
+### Students
 
-POST /api/auth/register-student → Student registration
+* `POST /api/students/register-event` → Register for an event
+* `GET /api/students/my-events` → Student’s registered events
+* `POST /api/students/check-in` → Mark event attendance
+* `GET /api/students/profile` → View student profile
 
-POST /api/auth/login-student → Student login
+---
 
-Events
+## Database Structure
 
-GET /api/events → List all events
-
-GET /api/events/:id → Get details of one event
-
-POST /api/events → Add event (Admin only)
-
-PUT /api/events/:id → Update event (Admin only)
-
-DELETE /api/events/:id → Remove event (Admin only)
-
-Students
-
-POST /api/students/register-event → Register for an event
-
-GET /api/students/my-events → Student’s registered events
-
-POST /api/students/check-in → Mark event attendance
-
-GET /api/students/profile → View student profile
-
-Database Structure
-
-admins → Admin users
-
-students → Student users
-
-events → Event details
-
-event_registrations → Links students to events
+* **admins** → Admin users
+* **students** → Student users
+* **events** → Event details
+* **event\_registrations** → Links students to events
 
 Features:
 
-Auto-increment IDs
+* Auto-increment IDs
+* Foreign keys for relationships
+* Indexed for performance
+* Database auto-setup on first run
 
-Foreign keys for relationships
+---
 
-Indexed for performance
+## Security Highlights
 
-Database auto-setup on first run
+* JWT authentication
+* Hashed passwords (bcrypt)
+* Rate limiting for requests
+* CORS enabled & configured
+* Input validation
+* Safe from SQL injections
 
-Security Highlights
+---
 
-JWT authentication
+## Mobile App Benefits
 
-Hashed passwords (bcrypt)
+* PWA with offline mode
+* Push notifications (optional add-on)
+* Fast, mobile-optimized design
+* Easy, touch-friendly interface
 
-Rate limiting for requests
+---
 
-CORS enabled & configured
+## Project Layout
 
-Input validation
-
-Safe from SQL injections
-
-Mobile App Benefits
-
-PWA with offline mode
-
-Push notifications (optional add-on)
-
-Fast, mobile-optimized design
-
-Easy, touch-friendly interface
-
-Project Layout
+```
 ├── admin-portal/      # Web dashboard for admins
 ├── student-app/       # Mobile-first student app (PWA)
 ├── routes/            # API route handlers
@@ -190,41 +187,55 @@ Project Layout
 ├── database/          # Schema & DB initialization
 ├── server.js          # Entry point for backend
 └── package.json       # Node dependencies
+```
 
-Adding Features
+---
 
-Add new routes in routes/
+## Adding Features
 
-Update DB schema if needed
+1. Add new routes in `routes/`
+2. Update DB schema if needed
+3. Extend frontend (Admin/Student UI)
+4. Test end-to-end before release
 
-Extend frontend (Admin/Student UI)
+---
 
-Test end-to-end before release
+## Deployment
 
-Deployment
+**Backend**
 
-Backend
+* Deploy on platforms like Heroku, Railway, or DigitalOcean
+* Set environment variables in server
+* Ensure SQLite DB is accessible
 
-Deploy on platforms like Heroku, Railway, or DigitalOcean
+**Frontend**
 
-Set environment variables in server
+* Host Admin Portal on Netlify/Vercel
+* Deploy Student App as PWA
+* Point API requests to production server
 
-Ensure SQLite DB is accessible
+---
 
-Frontend
+## Contribution Guide
 
-Host Admin Portal on Netlify/Vercel
+1. Fork this repo
+2. Create a new feature branch
+3. Implement and test your changes
+4. Submit a Pull Request
 
-Deploy Student App as PWA
+---
 
-Point API requests to production server
+## License
 
-Contribution Guide
+Released under the **MIT License**. See LICENSE file for details.
 
-Fork this repo
+---
 
-Create a new feature branch
+## Support
 
-Implement and test your changes
+For any issues, suggestions, or questions, please open an issue in the repository.
 
-Submit a Pull Request
+```
+
+Do you also want me to **add a professional GitHub-style banner and badges (like build status, license, tech stack)** at the top of the README?
+```
