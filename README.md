@@ -1,194 +1,230 @@
 # Campus Event Management System
 
-A comprehensive event management system for colleges with an admin portal and student mobile app, built with Express.js, SQLite, and vanilla HTML/CSS/JavaScript.
+A complete event management platform designed specifically for colleges.  
+It comes with an **Admin Portal** for event organizers and a **Student App (PWA)** for participants.  
+Built with **Express.js, SQLite, and vanilla HTML/CSS/JavaScript**, it’s lightweight, simple, and effective.
 
-## Features
+---
+
+## Key Features
 
 ### Admin Portal
-- **Event Management**: Create, edit, and delete events
-- **Dashboard**: View statistics and analytics
-- **Event Types**: Support for hackathons, workshops, tech talks, fests, competitions, and seminars
-- **Registration Management**: Track student registrations and check-ins
-- **Analytics**: View event statistics and participation rates
+- Event Management: Create, update, and remove events anytime  
+- Dashboard: Quick overview of event stats and participation numbers  
+- Multiple Event Types: Hackathons, workshops, talks, fests, competitions, seminars, and more  
+- Registration Tracking: Manage student sign-ups and attendance  
+- Analytics: Insights into participation trends and engagement  
 
-### Student App (PWA)
-- **Event Discovery**: Browse and search events
-- **Registration**: Register for events with real-time availability
-- **Check-in**: Check-in on event day
-- **Profile Management**: Update personal information
-- **Mobile-First**: Responsive design optimized for mobile devices
-- **Offline Support**: Progressive Web App capabilities
+### Student App (Progressive Web App)
+- Event Discovery: Search and explore upcoming events  
+- One-Click Registration: Sign up instantly with real-time availability checks  
+- Check-in System: Simple QR or click-based check-in on event day  
+- Profile Management: Keep personal details up-to-date  
+- Mobile-First: Designed with responsive layouts for phones  
+- Offline Access: Works even with limited or no internet connection  
+
+---
 
 ## Tech Stack
+- Backend: Express.js + Node.js  
+- Database: SQLite (lightweight, auto-initialized)  
+- Authentication: JWT-based secure login  
+- Frontend: HTML5, CSS3, JavaScript (ES6+)  
+- PWA Support: Service Worker + Web App Manifest  
 
-- **Backend**: Express.js, Node.js
-- **Database**: SQLite
-- **Authentication**: JWT tokens
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **PWA**: Service Worker, Web App Manifest
+---
 
-## Setup Instructions
+## Setup Guide
 
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
 cd campus-event-management
 ```
-
-### 2. Install Dependencies
-```bash
+Install Dependencies
 npm install
-```
 
-### 3. Environment Configuration
+##3. Configure Environment
 
-Create a `.env` file in the root directory:
+Create a .env file in the root folder:
 
-```env
-# JWT Configuration
-JWT_SECRET=your_jwt_secret_here
+# JWT Settings
+JWT_SECRET=your_secret_key
 JWT_EXPIRES_IN=7d
 
-# Server Configuration
+# Server Settings
 PORT=5000
 NODE_ENV=development
-```
 
-**Note**: The SQLite database will be automatically created and initialized when you start the server. A default admin account will be created with:
-- Email: `admin@college.edu`
-- Password: `admin123`
 
-### 4. Start the Application
+Note: The system auto-creates the database on first run.
+A default admin account is also set up:
 
-#### Start the Backend Server
-```bash
+Email: admin@college.edu
+
+Password: admin123
+
+4. Run the App
+
+Start Backend
+
 npm start
-# or for development
+# or use for development
 npm run dev
-```
 
-#### Start the Admin Portal
-```bash
+
+Launch Admin Portal
+
 npm run admin
 # Opens at http://localhost:3000
-```
 
-#### Start the Student App
-```bash
+
+Launch Student App
+
 npm run student
 # Opens at http://localhost:3001
-```
 
-## Usage
+How to Use
+Admin Portal → http://localhost:3000
 
-### Admin Portal (http://localhost:3000)
-1. Register as an admin or use the default credentials
-2. Create events with detailed information
-3. Monitor registrations and analytics
-4. Manage event lifecycle
+Login with default or new admin account
 
-### Student App (http://localhost:3001)
-1. Register as a student
-2. Browse available events
-3. Register for events
-4. Check-in on event day
-5. View your registered events
+Create events with details like time, venue, and type
 
-## API Endpoints
+Track registrations and attendance
 
-### Authentication
-- `POST /api/auth/register-admin` - Register admin
-- `POST /api/auth/login-admin` - Login admin
-- `POST /api/auth/register-student` - Register student
-- `POST /api/auth/login-student` - Login student
+Monitor analytics
 
-### Events
-- `GET /api/events` - Get all events
-- `GET /api/events/:id` - Get event by ID
-- `POST /api/events` - Create event (Admin only)
-- `PUT /api/events/:id` - Update event (Admin only)
-- `DELETE /api/events/:id` - Delete event (Admin only)
+Student App → http://localhost:3001
 
-### Students
-- `POST /api/students/register-event` - Register for event
-- `GET /api/students/my-events` - Get student's events
-- `POST /api/students/check-in` - Check-in for event
-- `GET /api/students/profile` - Get student profile
+Sign up as a student
 
-## Database Schema
+Browse events and register
 
-### Tables
-- **admins**: Admin user accounts
-- **students**: Student user accounts
-- **events**: Event information
-- **event_registrations**: Student event registrations
+Check in on event day
 
-### Key Features
-- SQLite database with auto-incrementing primary keys
-- Proper foreign key relationships
-- Optimized indexes for performance
-- Automatic database initialization
+View registered events anytime
 
-## Security Features
+API Endpoints
+Authentication
 
-- JWT-based authentication
-- Password hashing with bcrypt
-- Rate limiting
-- CORS protection
-- Input validation
-- SQL injection prevention
+POST /api/auth/register-admin → New admin registration
 
-## Mobile App Features
+POST /api/auth/login-admin → Admin login
 
-- Progressive Web App (PWA)
-- Offline functionality
-- Push notifications (can be added)
-- Mobile-optimized UI
-- Touch-friendly interactions
+POST /api/auth/register-student → Student registration
 
-## Development
+POST /api/auth/login-student → Student login
 
-### Project Structure
-```
-├── admin-portal/          # Admin web interface
-├── student-app/           # Student mobile app
-├── routes/                # API routes
-├── config/                # Configuration files
-├── database/              # Database schema
-├── server.js              # Main server file
-└── package.json           # Dependencies
-```
+Events
 
-### Adding New Features
-1. Create new routes in the `routes/` directory
-2. Update the database schema if needed
-3. Add frontend components
-4. Test thoroughly
+GET /api/events → List all events
 
-## Deployment
+GET /api/events/:id → Get details of one event
 
-### Backend Deployment
-1. Deploy to platforms like Heroku, Railway, or DigitalOcean
-2. Set environment variables
-3. Ensure database connection
+POST /api/events → Add event (Admin only)
 
-### Frontend Deployment
-1. Deploy admin portal to Netlify, Vercel, or similar
-2. Deploy student app as PWA
-3. Update API URLs for production
+PUT /api/events/:id → Update event (Admin only)
 
-## Contributing
+DELETE /api/events/:id → Remove event (Admin only)
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+Students
 
-## License
+POST /api/students/register-event → Register for an event
 
-MIT License - see LICENSE file for details
+GET /api/students/my-events → Student’s registered events
 
-## Support
+POST /api/students/check-in → Mark event attendance
 
-For support and questions, please open an issue in the repository.
+GET /api/students/profile → View student profile
+
+Database Structure
+
+admins → Admin users
+
+students → Student users
+
+events → Event details
+
+event_registrations → Links students to events
+
+Features:
+
+Auto-increment IDs
+
+Foreign keys for relationships
+
+Indexed for performance
+
+Database auto-setup on first run
+
+Security Highlights
+
+JWT authentication
+
+Hashed passwords (bcrypt)
+
+Rate limiting for requests
+
+CORS enabled & configured
+
+Input validation
+
+Safe from SQL injections
+
+Mobile App Benefits
+
+PWA with offline mode
+
+Push notifications (optional add-on)
+
+Fast, mobile-optimized design
+
+Easy, touch-friendly interface
+
+Project Layout
+├── admin-portal/      # Web dashboard for admins
+├── student-app/       # Mobile-first student app (PWA)
+├── routes/            # API route handlers
+├── config/            # Config & environment setup
+├── database/          # Schema & DB initialization
+├── server.js          # Entry point for backend
+└── package.json       # Node dependencies
+
+Adding Features
+
+Add new routes in routes/
+
+Update DB schema if needed
+
+Extend frontend (Admin/Student UI)
+
+Test end-to-end before release
+
+Deployment
+
+Backend
+
+Deploy on platforms like Heroku, Railway, or DigitalOcean
+
+Set environment variables in server
+
+Ensure SQLite DB is accessible
+
+Frontend
+
+Host Admin Portal on Netlify/Vercel
+
+Deploy Student App as PWA
+
+Point API requests to production server
+
+Contribution Guide
+
+Fork this repo
+
+Create a new feature branch
+
+Implement and test your changes
+
+Submit a Pull Request
