@@ -1,6 +1,4 @@
-Got it 👍 — here’s the clean **README.md code** without any emojis/icons, ready to use in your project:
 
-````markdown
 # Campus Event Management System
 
 A complete event management platform designed specifically for colleges.  
@@ -222,20 +220,3 @@ Features:
 2. Create a new feature branch
 3. Implement and test your changes
 4. Submit a Pull Request
-
----
-
-## License
-
-Released under the **MIT License**. See LICENSE file for details.
-
----
-
-## Support
-
-For any issues, suggestions, or questions, please open an issue in the repository.
-
-```
-
-Do you also want me to **add a professional GitHub-style banner and badges (like build status, license, tech stack)** at the top of the README?
-```
